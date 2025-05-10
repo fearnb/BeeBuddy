@@ -1,5 +1,6 @@
 let session = false;
 let bees = [];
+let scrapped = 0;
 
 document.getElementById('session').style.display = "none";
 
@@ -13,6 +14,8 @@ function start(){
         document.getElementById('start').style.display = "none";
         document.getElementById('session').style.display = "block";
         document.getElementById("beeCount").innerHTML = bees.length;
+        document.getElementById("beeScrapped").innerHTML = scrapped;
+        document.getElementById("beeGood").innerHTML = bees.length - scrapped;
 
     }else{
         session = false;
@@ -28,8 +31,7 @@ function recordBee(){
     }else{
         let start = new Date().getTime()
         let startDate = new Date()
-        let end = start + 10000
-        // let end = start + 2*60000
+        let end = start + 2*60000
         let endDate = new Date(end);
         let bee = {
             "recordStart" : start,
@@ -45,15 +47,31 @@ function recordBee(){
         document.getElementById('loggers').style.display = "block";
 
         long = () =>{
-            bee['hops'].push('l')
+            bee['hops'].push({type : 'l',
+                              time : new Date()})
         }
 
         short = () =>{
-            bee['hops'].push('s')
+            bee['hops'].push({type : 's',
+                              time : new Date()})
+        }
+
+        scrap = () => {
+            bee['hops'].push('scrapped');
+            end = new Date().getTime();
+            endDate = new Date();
+            bee['recordEnd'] = end;
+            bee['recordEndDate'] = endDate;
+            countDownDate = bee['recordEnd'];
+            scrapped++;
+            document.getElementById("beeCount").innerHTML = bees.length;
+            document.getElementById("beeScrapped").innerHTML = scrapped;
+            document.getElementById("beeGood").innerHTML = bees.length - scrapped;
         }
 
         document.getElementById('longLogger').onclick = long;
         document.getElementById('shortLogger').onclick = short;
+        document.getElementById('scrap').onclick = scrap;
 
         // Set the date we're counting down to
         var countDownDate = bee['recordEnd'];
@@ -78,8 +96,9 @@ function recordBee(){
           if (distance <= 0) {
            clearInterval(x);
            bees.push(bee)
-           console.log(bees)
            document.getElementById("beeCount").innerHTML = bees.length;
+           document.getElementById("beeScrapped").innerHTML = scrapped;
+           document.getElementById("beeGood").innerHTML = bees.length - scrapped;
            document.getElementById('beeCounter').style.display = "none";
            document.getElementById('record').style.display = "block";
            document.getElementById('end').style.display = "block";
@@ -92,11 +111,11 @@ function recordBee(){
 
 function sendMail() {
     beeString = JSON.stringify(bees)
-    // console.log(beeString)
     var link = "mailto:XXX"
              + "?subject=" + encodeURIComponent("This is extremely stupid")
              + "&body=" + encodeURIComponent(beeString)
     ;
     
     window.location.href = link;
+    bees = []
 }
