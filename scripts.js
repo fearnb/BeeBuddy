@@ -35,6 +35,7 @@ function recordBee(){
         let end = start + 2*60000
         let endDate = new Date(end);
         let bee = {
+            "id" : bees.length,
             "recordStart" : start,
             "recordStartDate" : startDate,
             "recordEnd" : end,
@@ -120,4 +121,5 @@ function sendMail() {
     
     window.location.href = link;
     bees = []
+    scrapped = 0;
 }
