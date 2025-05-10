@@ -28,8 +28,8 @@ function recordBee(){
     }else{
         let start = new Date().getTime()
         let startDate = new Date()
-        // let end = start + 10000
-        let end = start + 2*60000
+        let end = start + 10000
+        // let end = start + 2*60000
         let endDate = new Date(end);
         let bee = {
             "recordStart" : start,
@@ -88,4 +88,15 @@ function recordBee(){
         }, 1000);
     }
 
+}
+
+function sendMail() {
+    beeString = JSON.stringify(bees)
+    // console.log(beeString)
+    var link = "mailto:XXX"
+             + "?subject=" + encodeURIComponent("This is extremely stupid")
+             + "&body=" + encodeURIComponent(beeString)
+    ;
+    
+    window.location.href = link;
 }
