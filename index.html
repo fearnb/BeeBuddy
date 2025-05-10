@@ -6,9 +6,27 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Bee Buddy</title>
     <link rel="stylesheet" href="style.css">
-    <script src="index.js"></script>
   </head>
   <body>
-    <h1>Bee Buddy!</h1>
+    <h1>🐝 Bee Buddy! 🐝</h1>
+    <p></p>
+    <div id="start"><button>Start new session</button></div>
+    <div id="session" style="display:none">
+        <div id="counting">
+            <p>Bees recorded: <span id="beeCount"></span></p>
+            <button id="record">Record next bee</button>
+        </div>
+        <div id="beeCounter" style="display: none;">
+            <p id="timer"></p>
+            <div id="loggers" style="display: none">
+                <button id="longLogger">Long Hop</button>
+                <button id ="shortLogger">Short Hop</button>
+            </div>
+        </div>
+        <div id="end">
+            <button id="end">End session</button>
+        </div>
+    </div>
   </body>
+  <script src="scripts.js"></script>
 </html>
