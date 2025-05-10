@@ -1,0 +1,108 @@
+/*Dracula ftw*/
+html,
+body {
+	background-image: none !important;
+	background-color: #282a36 !important;
+}
+
+body * {
+	color: #ff79c6 !important;
+	background-color: #282a36 !important;
+}
+
+a,
+a * {
+	color: #BD93F9 !important;
+	background-color: transparent !important;
+}
+
+a:hover,
+a:hover *,
+a:visited:hover,
+a:visited:hover *,
+span[onclick]:hover,
+div[onclick]:hover,
+[role="link"]:hover,
+[role="link"]:hover *,
+[role="button"]:hover *,
+[role="menuitem"]:hover,
+[role="menuitem"]:hover *,
+.link:hover,
+.link:hover * {
+	color: #50FA7B !important;
+}
+
+a:visited,
+a:visited * {
+	color: #F1FA8C !important;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+strong,
+[id*="headline"],
+[class*="headline"],
+[id*="header"],
+[class*="header"],
+[class*="header"] td {
+	color: #FFB86C !important;
+}
+
+table {
+	background-color: #282a36 !important;
+}
+
+[id*="overlay"],
+[id*="lightbox"],
+blockquote {
+	background-color: #44475a !important;
+}
+
+pre,
+dl {
+	background-color: #44475a !important;
+}
+
+input,
+select,
+button,
+[role="button"],
+a.button,
+a.submit,
+a.BigButton,
+a.TabLink,
+.install[onclick] {
+	text-indent: 5px;
+	appearance: none !important;
+	-moz-appearance: none !important;
+	-webkit-appearance: none !important;
+	background: #44475a !important;
+}
+
+textarea {
+	appearance: none !important;
+	-moz-appearance: none !important;
+	-webkit-appearance: none !important;
+	background: #44475a !important;
+}
+
+div,
+ul,
+li {
+	background-image: none !important;
+}
+
+a.highlight,
+a.highlight *,
+a.active,
+a.active *,
+.selected,
+.selected *,
+[href="#"] {
+	font-weight: bold !important;
+	color: #8be9fd !important;
+}
