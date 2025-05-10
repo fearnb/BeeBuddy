@@ -31,6 +31,7 @@ function recordBee(){
     }else{
         let start = new Date().getTime()
         let startDate = new Date()
+        // let end = start + 5000
         let end = start + 2*60000
         let endDate = new Date(end);
         let bee = {
@@ -111,9 +112,10 @@ function recordBee(){
 
 function sendMail() {
     beeString = JSON.stringify(bees)
+    goodBees = bees.length - scrapped
     var link = "mailto:XXX"
              + "?subject=" + encodeURIComponent("This is extremely stupid")
-             + "&body=" + encodeURIComponent(beeString)
+             + "&body=" + encodeURIComponent("good bees: " + goodBees + "\n" + beeString)
     ;
     
     window.location.href = link;
