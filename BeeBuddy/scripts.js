@@ -114,7 +114,7 @@ function recordBee(){
 function sendMail() {
     beeString = JSON.stringify(bees)
     goodBees = bees.length - scrapped
-    var link = "mailto:XXX"
+    var link = "mailto:fearnbishop@gmail.com"
              + "?subject=" + encodeURIComponent("This is extremely stupid")
              + "&body=" + encodeURIComponent("good bees: " + goodBees + "\n" + beeString)
     ;
